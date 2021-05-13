@@ -5,7 +5,7 @@
         {{ else }}
         <!-- <span class="logo__text">{{ with .Site.Params.Logo.logoText }}{{ . }}{{ else }}hello{{ end }}</span> -->
         
-        <span class="logo__text">kirito<span id="at-symbol">@</span>web {{ with .File.Dir }}{{ . }}{{ else }}/{{ end }}</span>
+        <span class="logo__text"><span id="hostname">kirito<span id="at-symbol">@</span>web {{ with .File.Dir }}{{ . }}{{ else }}/{{ end }}</span></span>
         <span class="logo__mark">{{ with .Site.Params.Logo.logoMark }}{{ . }}{{ else }}>{{ end }}</span>
             <span class="logo__cursor" style=
                   "{{ with.Site.Params.Logo.logoCursorDisabled }}visibility:hidden;{{ end }}
@@ -15,3 +15,17 @@
         {{ end }}
     </div>
 </a>
+
+<script>
+    function changeHostnameOnMobile() {
+        let innerWidth = window.innerWidth;
+        if (innerWidth < 768) {
+            let hostname = document.getElementById("hostname");
+            hostname.innerHTML = "<span id='hostname'>kirito<span id='at-symbol'>@</span>web</span>";
+            // console.log("ran", innerWidth, window.innerWidth, hostname)
+            return;
+        }
+        else return;
+    }
+    changeHostnameOnMobile();
+</script>
