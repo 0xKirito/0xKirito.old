@@ -4,6 +4,11 @@ languageCode = "en-us"
 theme        = "hello-friend-ng"
 paginate     = 10
 
+# PygmentsCodeFences = true
+# PygmentsStyle = "monokai"
+PygmentsCodeFences = false
+PygmentsStyle = ""
+
 [author]
   name = "0xKirito"
 
@@ -17,17 +22,21 @@ paginate     = 10
   dateformNumTime = "2006-01-02 15:04"
   enableThemeToggle = true
 
+
+  # Custom CSS Stylesheets
+  customCSS = ["css/custom-styles.scss"]
+
   # Subtitle for home
-  homeSubtitle = "My Cyber Security Journey"
+  homeSubtitle = "Cyber Security Enthusiast"
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
 
   # Enable sharing buttons, if you like
-  enableSharingButtons = true
+  enableSharingButtons = false
 
   # Metadata mostly used in document's head
-  description = "My new homepage or blog"
+  description = "0xKirito's new blog post"
   keywords = "homepage, blog"
   images = [""]
 
@@ -38,8 +47,8 @@ paginate     = 10
     copyright = false
 
     topText = []
-    bottomText = ["Powered by <a href=\"http://gohugo.io\">Hugo</a>",
-            "Theme by <a href=\"https://github.com/rhazdon\">rhazdon</a>"]
+    bottomText = ["Powered by <a title='hugo' href=\"http://gohugo.io\">Hugo</a>",
+            "Theme by <a title='rhazdon' href=\"https://github.com/rhazdon\">rhazdon</a>"]
 
 [taxonomies]
     category = "blog"
@@ -55,7 +64,8 @@ paginate     = 10
     readOtherPosts = "Read other posts"
 
     [languages.en.params.logo]
-      logoText = "0xKirito"
+      logoMark = "#"
+      logoText = ""
       logoHomeLink = "/"
     # or
     #
@@ -63,6 +73,7 @@ paginate     = 10
     # alt = "Your example logo alt text"
 
   # And you can even create generic menu
+
   [[menu.main]]
     identifier = "posts"
     name       = "Posts"
@@ -71,8 +82,10 @@ paginate     = 10
   [[menu.main]]
     identifier = "about"
     name = "About"
+    url = "about/"
     weight = 2
-    url = "/about/"
+
+
 
 
   # Social links
@@ -89,3 +102,4 @@ paginate     = 10
     weight = 1
     url = "https://github.com/0xKirito"
 
+  
