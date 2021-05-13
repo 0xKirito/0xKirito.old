@@ -24,7 +24,7 @@ PygmentsStyle = ""
 
 
   # Custom CSS Stylesheets
-  customCSS = ["css/custom-styles.scss"]
+  # customCSS = ["css/custom-styles.scss"]
 
   # Subtitle for home
   homeSubtitle = "Cyber Security Enthusiast"
