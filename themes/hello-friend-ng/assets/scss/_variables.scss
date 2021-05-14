@@ -18,6 +18,7 @@ $dark-color-secondary: #b3b3bd;
 $dark-border-color: #4e4e57;
 $dark-table-color: #4e4e57;
 
+$media-size-small-screen: "(max-width: 480px)";
 $media-size-phone: "(max-width: 684px)";
 $media-size-tablet: "(max-width: 900px)";
 
@@ -28,4 +29,5 @@ $media-size-tablet: "(max-width: 900px)";
 }
 
 /* Content */
-$max-width: 860px;
+// $max-width: 860px;
+$max-width: 1000px;
