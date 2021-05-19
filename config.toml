@@ -1,4 +1,4 @@
-baseurl      = ""
+baseurl      = "/"
 title        = "0xKirito's Blog"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
