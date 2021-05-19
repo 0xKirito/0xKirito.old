@@ -23,30 +23,14 @@
   src: url("../fonts/Fira-Sans-600.woff2") format("woff2"),
        url("../fonts/Fira-Sans-600.woff") format("woff");
 }
-// @font-face {
-//   font-family: 'Inter UI';
-//   font-style:  italic;
-//   font-display: auto;
-//   font-weight: 600;
-//   src: url("../fonts/Inter-UI-MediumItalic.woff2") format("woff2"),
-//        url("../fonts/Inter-UI-MediumItalic.woff") format("woff");
-// }
 
-@font-face {
-  font-family: 'Fira Sans';
-  font-style:  normal;
-  font-display: auto;
-  font-weight: 800;
-  src: url("../fonts/Fira-Sans-800.woff2") format("woff2"),
-       url("../fonts/Fira-Sans-800.woff") format("woff");
-}
 // @font-face {
-//   font-family: 'Inter UI';
-//   font-style:  italic;
+//   font-family: 'Fira Sans';
+//   font-style:  normal;
 //   font-display: auto;
 //   font-weight: 800;
-//   src: url("../fonts/Inter-UI-BoldItalic.woff2") format("woff2"),
-//        url("../fonts/Inter-UI-BoldItalic.woff") format("woff");
+//   src: url("../fonts/Fira-Sans-800.woff2") format("woff2"),
+//        url("../fonts/Fira-Sans-800.woff") format("woff");
 // }
 
 @font-face {
@@ -74,6 +58,15 @@
   font-weight: 700;
   src: url("../fonts/Fira-Code-700.woff2") format("woff2"),
        url("../fonts/Fira-Code-700.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Fira Mono';
+  font-style:  normal;
+  font-display: auto;
+  font-weight: 400;
+  src: url("../fonts/Fira-Mono-Regular.woff2") format("woff2"),
+       url("../fonts/Fira-Mono-Regular.woff") format("woff");
 }
 
 @font-face {
