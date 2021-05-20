@@ -123,9 +123,9 @@ define('DB_PASSWORD', 'mysql');
 - `show tables;` 
 - `select * from user;` 
 - DerpNStink MySQL Commands:
-![DerpNStink MySQL Commands](/imgs/derpnstink_mysql_commands.png)
+![DerpNStink MySQL Commands](/imgs/derpnstink/derpnstink_mysql_commands.png)
 - Dumping users & passwords from MySQL:
-![Dumping Users & Passwords from MySQL](/imgs/derpnstink_mysql_users_passwords.png)
+![Dumping Users & Passwords from MySQL](/imgs/derpnstink/derpnstink_mysql_users_passwords.png)
 
 - And we get a few MySQL password hashes. Used [CrackStation](https://crackstation.net/) to crack them: 
 ```
