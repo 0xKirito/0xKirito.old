@@ -89,8 +89,24 @@ li {
   font-size: 1.25rem;
 }
 
+code {
+  font-size: 1.125rem;
+}
+
 p {
   font-size: 1.25rem;
+}
+
+.post-content {
+
+  code {
+    font-size: 1.125rem;
+  }
+
+  p, li, a {
+    font-size: 1.25rem;
+  }
+
 }
 
 a {
@@ -265,7 +281,6 @@ pre {
     background: none !important;
     margin: 0;
     padding: 0;
-    font-size: inherit;
     // Default
     color: #ccc;
 
@@ -606,14 +621,23 @@ a:hover {
 }
 
 @media #{$media-size-phone} {
-  p, li, code {
-    font-size: 1.1rem;
-  }
 
+  .post-content {
+
+    code {
+      font-size: 1.1rem;
+    }
+  
+    p, li, a {
+      font-size: 1.125rem;
+    }
+
+  }
+    
   h1 {
     font-size: 2rem;
   }
-
+  
   h2 {
     font-size: 1.75rem;
   }
@@ -649,13 +673,25 @@ a:hover {
 
 @media #{$media-size-small-screen} {
 
+  .post-content {
+    
+    p, li, a, code {
+      font-size: 1rem;
+    }
+
+    ul {
+      margin: 2px 0 0 5px;
+    }
+
+  }
+
+  span {
+    font-size: 1rem;
+  }
+
   ul li, ul li p {
     line-height: 1.6;
   }  
-
-  li, p, span {
-    font-size: 1rem;
-  }
 
   .logo__text, .logo__mark {
     font-size: 1rem !important;
@@ -683,16 +719,6 @@ a:hover {
       font-size: 1rem;
     }
 
-  }
-
-  .post-content {
-    ul {
-      margin: 2px 0 0 5px;
-    }
-
-    code, li, p, a {
-      font-size: 1rem;
-    }
   }
 
   code {
