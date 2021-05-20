@@ -14,7 +14,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
   font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
   font-display: auto;
   font-size: 1rem;
@@ -221,7 +220,6 @@ ul {
 
 code {
   // font-family: "Fira Code";
-  // font-family: "Fira Mono" !important;
   font-family: monospace;
   font-family: "Fira Mono", Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace !important;
   // font-weight: 500;
@@ -380,13 +378,13 @@ hr {
 
 // name in about section
 #about-name {
-  font-family: 'Fira Code'; 
+  font-family: 'Fira Code', monospace;
   font-weight: 600; 
 }
 
 // name on homepage
 #kirito {
-  font-family: "Fira Code";
+  font-family: "Fira Code", monospace;
   font-weight: 600;
   margin: 0 auto;
 }
@@ -522,7 +520,7 @@ a:hover {
 }
 
 .logo__mark {
-  font-family: "Fira Code";
+  font-family: "Fira Code", monospace;
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
@@ -530,17 +528,13 @@ a:hover {
 }
 
 .logo__text {
-  font-family: "Fira Code";
+  font-family: "Fira Code", monospace;
   font-weight: 600;
 }
 
 .next a:hover, .previous a:hover {
   text-decoration: none;
 }
-
-
-
-
 
 
 

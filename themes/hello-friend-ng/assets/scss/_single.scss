@@ -1,11 +1,15 @@
 .post {
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   text-align: left;
   padding: 20px;
   margin: 20px auto;
   @media #{$media-size-tablet} {
-    max-width: 600px;
+    max-width: 750px;
+  }
+
+  @media #{$media-size-phone} {
+    max-width: 620px;
   }
 
   @media #{$media-size-small-screen} {
