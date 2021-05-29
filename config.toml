@@ -36,8 +36,8 @@ PygmentsStyle = ""
   enableSharingButtons = false
 
   # Metadata mostly used in document's head
-  description = "0xKirito's new blog post"
-  keywords = "homepage, blog"
+  description = "0xKirito's InfoSec Blog"
+  keywords = "homepage, blog, writeup, walkthrough"
   images = [""]
 
   [params.footer]
